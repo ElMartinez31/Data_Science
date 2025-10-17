@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+plotly
+streamlit
+ipykernel
+requests
+statsmodels
+nbformat
