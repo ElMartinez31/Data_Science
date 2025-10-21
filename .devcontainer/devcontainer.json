@@ -1,0 +1,12 @@
+{
+  "name": "codespace-with-docker",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": true
+      /* "dockerDashComposeVersion": "v2"  // décommente si tu veux forcer compose v2 */
+    }
+  },
+  "postCreateCommand": "docker version || true"
+}
