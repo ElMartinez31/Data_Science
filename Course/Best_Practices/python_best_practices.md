@@ -8,6 +8,7 @@ Ce guide présente les **bases essentielles** pour écrire du code **propre, lis
 
 Une bonne organisation évite vite le chaos :
 
+```arduino
 projet/
 ├─ data/ # jeux de données (non versionnés)
 ├─ notebooks/ # explorations, essais
@@ -17,7 +18,7 @@ projet/
 ├─ tests/ # quelques tests unitaires
 ├─ requirements.txt # dépendances
 └─ README.md # comment utiliser le projet
-
+```
 
 👉 Idées :
 - Tout ce qui est réutilisable va dans `src/`
