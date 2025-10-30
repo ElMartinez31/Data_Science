@@ -46,6 +46,7 @@ line-length = 100
 line-length = 100
 Règles clés
 1 fonction = 1 rôle
+```
 
 Noms explicites : load_data() plutôt que ld()
 
@@ -53,11 +54,10 @@ Commente le pourquoi, pas le quoi
 
 Code lisible > code “malin”
 
- 3. Fonctions propres & testables
+ ## 3. Fonctions propres & testables
 Exemple :
 
-python
-Copier le code
+```python
 import pandas as pd
 
 def compute_ratio(df: pd.DataFrame, num: str, den: str, out: str) -> pd.DataFrame:
@@ -65,19 +65,22 @@ def compute_ratio(df: pd.DataFrame, num: str, den: str, out: str) -> pd.DataFram
     df = df.copy()
     df[out] = df[num] / df[den]
     return df
+```
+
 ✅ Pas de variable globale
 ✅ Pas d’effet de bord (ne modifie pas directement les entrées)
 ✅ Retourne un résultat clair
 
 Et un petit test :
 
-python
-Copier le code
+```python
 def test_compute_ratio():
     df = pd.DataFrame({"a": [2, 4], "b": [1, 2]})
     out = compute_ratio(df, "a", "b", "r")
     assert list(out["r"]) == [2.0, 2.0]
-🧪 4. Notebooks : exploration oui, bazar non
+```
+
+## 🧪 4. Notebooks : exploration oui, bazar non
 1 notebook = 1 objectif (exploration, modélisation, visualisation)
 
 Exécute toujours dans l’ordre, sans dépendre d’un état caché
@@ -86,13 +89,12 @@ Déplace dans src/ le code que tu veux réutiliser
 
 Évite les chemins en dur : utilise pathlib.Path
 
-🗃️ 5. Dépendances & environnement
+## 🗃️ 5. Dépendances & environnement
 Utilise un seul gestionnaire : venv ou conda
 
 Liste tes dépendances dans requirements.txt :
 
 nginx
-Copier le code
 pandas
 numpy
 scikit-learn
@@ -101,7 +103,7 @@ matplotlib
 
 Fige les versions pour la reproductibilité (pip freeze > requirements.txt)
 
-🧾 6. Lisibilité > performance
+## 🧾 6. Lisibilité > performance
 Code clair > code rapide (la plupart du temps).
 
 Exemples :
@@ -112,14 +114,14 @@ Exemples :
 
 ✅ df.query("a > 0") pour filtrer simplement
 
-🧩 7. Un peu de rigueur sur les données
+## 🧩 7. Un peu de rigueur sur les données
 Vérifie les types (df.dtypes)
 
 Gère les valeurs manquantes (.fillna() ou .dropna())
 
 Documente les colonnes importantes (dans le README ou un dictionnaire de données)
 
-📜 8. Logging léger (à la place de print())
+## 📜 8. Logging léger (à la place de print())
 python
 Copier le code
 import logging
@@ -127,14 +129,14 @@ logging.basicConfig(level=logging.INFO)
 logging.info("Chargement des données terminé.")
 Objectif : savoir ce que ton code fait sans inonder la console.
 
-🎯 9. Checklist simple avant de livrer
+## 🎯 9. Checklist simple avant de livrer
 ✅ Code auto-formaté (black .)
 ✅ Pas de variables inutiles ni de print() de debug
 ✅ Fonctions réutilisables dans src/
 ✅ Quelques tests unitaires qui passent
 ✅ Notebook clair et lisible
 
-🧰 10. En résumé
+## 🧰 10. En résumé
 Aspect	Bon réflexe
 Structure	Sépare code / data / notebooks
 Style	Utilise black + ruff
