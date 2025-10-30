@@ -3,6 +3,50 @@
 Ce guide présente les **bases essentielles** pour écrire du code **propre, lisible et reproductible** en Python, adapté au travail de Data Scientist.
 
 ---
+## 0. Environnements
+
+Ce qui est essentiel, c’est l’environnement Python isolé dans lequel tu travailles.
+
+Deux options principales :
+
+🔹 Option 1 — Conda environment
+
+C’est très courant en data science :
+
+facile à gérer (conda create -n mon_projet python=3.11)
+
+gère aussi les dépendances système (C/C++, CUDA, etc.)
+
+bon pour Jupyter notebooks + packages scientifiques (numpy, pandas, scikit-learn, matplotlib, etc.)
+
+Typiquement :
+
+conda create -n mon_projet python=3.11
+conda activate mon_projet
+pip install -r requirements.txt
+
+🔹 Option 2 — venv ou virtualenv
+
+Plus “pur Python”, souvent utilisé dans les projets de développement logiciel :
+
+python -m venv venv
+source venv/bin/activate   # Linux/macOS
+venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+
+⚙️ 3. Outils typiques associés à cette structure
+
+Tu trouveras souvent :
+
+JupyterLab / VS Code → pour éditer les notebooks et le code.
+
+pytest → pour les tests dans tests/.
+
+Git + GitHub/GitLab → pour le versionnement du code.
+
+.gitignore → pour exclure data/ (souvent trop lourd).
+
+requirements.txt ou environment.yml → pour reproduire l’environnement.
 
 ## 🧱 1. Structure minimale d’un projet
 
